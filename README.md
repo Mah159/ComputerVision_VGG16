@@ -1,0 +1,6 @@
+Fine-tuning pre-trained models is a powerful technique that allows you to re-purpose a model for a custom dataset. Keras comes bundled with many pre-trained classification models, allowing you to conveniently load a model in memory and configure it for Fine-Tuning. Let's summarize the key steps required for fine-tuning a pre-trained model.
+
+When fine-tuning pre-trained models, we only load the convolutional base of the model, which is initialized with ImageNet weights.
+We "freeze" the first few layers of the convolutional base but allow the last few layers to be trained ("fine-tuned"). These steps are accomplished with the model's trainable attribute to toggle which layers are trainable and which are not. The number of layers to fine-tune is something you need to experiment with.
+The classifier needs to be redefined based on the dataset and is initialized with random weights.
+In this way, the model's initial state is in a favorable position for continued learning that allows it to adapt to a new dataset and learn faster (and potentially better) than training a model from scratch. This approach also allows the model to be re-purposed for a new dataset with much less data than would be required for training a model from scratch.
